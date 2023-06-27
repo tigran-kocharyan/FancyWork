@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="ru.mail.fancywork.ui.primary.MainActivity"
+        android:theme="@style/Theme.FancyWork">
+
+    <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/top_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/secondaryColor"
+            android:theme="@style/ToolbarStyleLight"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.Toolbar
+                app:title="Fancywork List"
+                android:theme="@style/ToolbarStyleLight"
+                android:id="@+id/top_bar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:menu="@menu/top_main_actionbar"
+                android:hapticFeedbackEnabled="false" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/top_bar_layout">
+
+        <androidx.recyclerview.widget.RecyclerView
+                android:paddingHorizontal="4dp"
+                android:paddingTop="4dp"
+                android:paddingBottom="80dp"
+                android:id="@+id/embroidery_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipToPadding="false" />
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/coordinatorLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/add_fancywork"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:backgroundTint="@color/secondaryColor"
+                android:contentDescription="@string/add_transaction"
+                android:elevation="0dp"
+                android:src="@drawable/ic_add"
+                app:elevation="0dp"
+                app:tint="@null" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
